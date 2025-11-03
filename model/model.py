@@ -37,11 +37,29 @@ class Autonoleggio:
         """
 
         # TODO
+        cnx= get_connection()
+        cursor= cnx.cursor()
+        query= """SELECT * FROM automobile"""
+        cursor.execute(query)
+        result= []
+        for row in cursor:
+            result.append(row)
+        return result
 
-    def cerca_automobili_per_modello(self, modello) -> list[Automobile] | None:
+
+
+    def cerca_automobili_per_modello(self,modello) -> list[Automobile] | None:
         """
             Funzione che recupera una lista con tutte le automobili presenti nel database di una certa marca e modello
             :param modello: il modello dell'automobile
             :return: una lista con tutte le automobili di marca e modello indicato oppure None
         """
         # TODO
+        cnx= get_connection()
+        cursor= cnx.cursor()
+        query= """SELECT * FROM automobile WHERE modello = '{modello}'"""
+        cursor.execute(query)
+        result= []
+        for row in cursor:
+            result.append(row)
+        return result
